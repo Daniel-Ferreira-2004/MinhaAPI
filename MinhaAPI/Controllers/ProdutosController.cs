@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MinhaAPI.Context;
 using MinhaAPI.Models;
 
@@ -49,6 +50,20 @@ namespace MinhaAPI.Controllers
             _context.SaveChanges();
 
             return CreatedAtRoute("ObterProduto", new { id = produto.ProdutoId }, produto);
+        }
+
+        [HttpPut("{id:int}")]
+        public ActionResult Put(int id, Produto produto)
+        {
+            if (id != produto.ProdutoId)
+            {
+                return BadRequest("ID do produto não corresponde ao ID na URL");
+            }
+
+            _context.Entry(produto).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return Ok(produto);
         }
     }
 }
