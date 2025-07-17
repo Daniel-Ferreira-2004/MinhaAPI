@@ -2556,11 +2556,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\daniel.ferreira\\Documents\\.NET da Udemy\\Primeira WEB API\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
+      "projectUniqueName": "C:\\Users\\daniel.ferreira\\Documents\\repos - Copia\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
       "projectName": "MinhaAPI",
-      "projectPath": "C:\\Users\\daniel.ferreira\\Documents\\.NET da Udemy\\Primeira WEB API\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
+      "projectPath": "C:\\Users\\daniel.ferreira\\Documents\\repos - Copia\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
       "packagesPath": "C:\\Users\\daniel.ferreira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\daniel.ferreira\\Documents\\.NET da Udemy\\Primeira WEB API\\MinhaAPI\\MinhaAPI\\obj\\",
+      "outputPath": "C:\\Users\\daniel.ferreira\\Documents\\repos - Copia\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

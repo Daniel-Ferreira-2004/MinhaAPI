@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FZ5g0enplAY=",
+  "dgSpecHash": "jao3bgxXibQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\daniel.ferreira\\Documents\\.NET da Udemy\\Primeira WEB API\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
+  "projectFilePath": "C:\\Users\\daniel.ferreira\\Documents\\repos - Copia\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daniel.ferreira\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\daniel.ferreira\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
