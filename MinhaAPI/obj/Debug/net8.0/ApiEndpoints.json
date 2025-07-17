@@ -11,9 +11,7 @@
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[MinhaAPI.Models.Categoria, MinhaAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "StatusCode": 200
       }
@@ -53,9 +51,7 @@
       {
         "Type": "MinhaAPI.Models.Categoria",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "StatusCode": 200
       }
@@ -111,9 +107,7 @@
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[MinhaAPI.Models.Categoria, MinhaAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "StatusCode": 200
       }

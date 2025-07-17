@@ -9,9 +9,9 @@ namespace MinhaAPI.Logging
         readonly ConcurrentDictionary<string, CustomerLogger> loggers =
             new ConcurrentDictionary<string, CustomerLogger>();
 
-        public CustomLoggerProvider(CustomLoggerProviderConfiguration Config)
+        public CustomLoggerProvider(CustomLoggerProviderConfiguration config)
         {
-            loggerConfig - Config;
+            loggerConfig = config;
         }
         public ILogger CreateLogger(string categoryName)
         {

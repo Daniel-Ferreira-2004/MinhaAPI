@@ -9,4 +9,5 @@
         {
             return System.Text.Json.JsonSerializer.Serialize(this);
         }
+    }
 }
