@@ -7,18 +7,22 @@ using MinhaAPI.Models;
 
 namespace MinhaAPI.Controllers
 {
+    [Produces("application/json")]
     [Route("[controller]")]
     [ApiController]
     public class CategoriaController : ControllerBase
     {
         private readonly AppDbContext _context;
-        public CategoriaController(AppDbContext context)
+        private readonly ILogger _logger;
+        public CategoriaController(AppDbContext context, ILogger<CategoriaController> logger)
         {
             _context = context;
+            _logger = logger;
         }
         [HttpGet("produtos")]
         public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
         {
+            _logger.LogInformation("### Executando -> GetCategoriasProdutos ###");
             return _context.Categorias.Include(p=> p.Produtos).ToList();
         }
 

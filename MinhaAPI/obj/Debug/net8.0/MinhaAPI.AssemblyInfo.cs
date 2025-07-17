@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MinhaAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2b6b86a26d3f957c42b1b72c5ebf76fced57e74")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d70b235ef1d6d6c69a8595a9d5942fa1a488dd3")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinhaAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinhaAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
