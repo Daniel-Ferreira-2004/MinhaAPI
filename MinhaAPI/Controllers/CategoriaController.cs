@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MinhaAPI.Context;
+using MinhaAPI.Filters;
 using MinhaAPI.Models;
 
 namespace MinhaAPI.Controllers
@@ -22,6 +23,7 @@ namespace MinhaAPI.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public ActionResult<IEnumerable<Categoria>> Get()
         {
             var Categoria = _context.Categorias.ToList();
