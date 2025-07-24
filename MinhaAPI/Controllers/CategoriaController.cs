@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using MinhaAPI.Context;
 using MinhaAPI.Filters;
 using MinhaAPI.Models;
+using MinhaAPI.Repositories;
 
 namespace MinhaAPI.Controllers
 {
@@ -12,44 +13,48 @@ namespace MinhaAPI.Controllers
     [ApiController]
     public class CategoriaController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly ICategoriaRepository _repository;
         private readonly ILogger _logger;
-        public CategoriaController(AppDbContext context, ILogger<CategoriaController> logger)
+        public CategoriaController(ICategoriaRepository repository, ILogger<CategoriaController> logger)
         {
-            _context = context;
+            _repository = repository;
             _logger = logger;
         }
+
         [HttpGet("produtos")]
         public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
         {
-            _logger.LogInformation("### Executando -> GetCategoriasProdutos ###");
-            return _context.Categorias.Include(p=> p.Produtos).ToList();
+            _logger.LogInformation("Obtendo categorias com produtos associados");
+            var categorias = _repository.GetCategorias();
+            if (categorias is null || !categorias.Any())
+            {
+                return NotFound("Nenhuma categoria encontrada");
+            }
+            return Ok(categorias);
+
         }
 
         [HttpGet]
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public ActionResult<IEnumerable<Categoria>> Get()
         {
-            var Categoria = _context.Categorias.ToList();
-            if (Categoria is null)
-            {
-                return NotFound("Produtos não encontrados");
-            }
-            return Ok(Categoria);
+            var categoria = _repository.GetCategorias();
+            return Ok(categoria);
+
         }
 
         [HttpGet("{id:int}", Name = "ObterCategoria")]
         public ActionResult<Categoria> Get(int id)
         {
             throw new Exception("Exceção ao retornar a categoria pelo ID");
-
-            var Categoria = _context.Categorias.FirstOrDefault(p => p.CategoriaId == id);
-            if (Categoria is null)
+            var categoria = _repository.GetCategoria(id);
+            if (categoria is null)
             {
-                return NotFound("Produto não encontrado");
+                return NotFound("Categoria não encontrada");
             }
-            return Ok(Categoria);
+            return Ok(categoria);
         }
+
 
         [HttpPost]
         public ActionResult Post([FromBody] Categoria categoria)
@@ -59,10 +64,8 @@ namespace MinhaAPI.Controllers
                 return BadRequest("Não encontrado");
             }
 
-            _context.Categorias.Add(categoria);
-            _context.SaveChanges();
-
-            return CreatedAtRoute("ObterProduto", new { id = categoria.CategoriaId }, categoria);
+            var createdCategoria = _repository.Create(categoria);
+            return CreatedAtRoute("ObterCategoria", new { id = createdCategoria.CategoriaId }, createdCategoria);
         }
 
         [HttpPut("{id:int}")]
@@ -72,30 +75,22 @@ namespace MinhaAPI.Controllers
             {
                 return BadRequest("ID do produto não corresponde ao ID na URL");
             }
-
-            _context.Entry(categoria).State = EntityState.Modified;
-            _context.SaveChanges();
-
+  
+            var updatedCategoria = _repository.Update(categoria);
             return Ok(categoria);
         }
 
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {
-            var categoria = _context.Categorias.FirstOrDefault(produto => produto.CategoriaId == id);
+            var categoria = _repository.GetCategoria(id);
             if (categoria is null)
             {
-                return NotFound("Produto não localizado...");
+                return NotFound("Categoria não encontrada");
             }
-            _context.Categorias.Remove(categoria);
-            _context.SaveChanges();
-
-            return Ok(categoria);
+            var categoriaExcluida = _repository.Delete(id);
+            return Ok(categoriaExcluida);
         }
 
-    }
-
-    public class Enumerable<T>
-    {
     }
 }

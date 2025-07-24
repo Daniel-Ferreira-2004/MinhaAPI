@@ -3,6 +3,7 @@ using MinhaAPI.Context;
 using MinhaAPI.Extensions;
 using MinhaAPI.Filters;
 using MinhaAPI.Logging;
+using MinhaAPI.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnecti
         options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));
 
 builder.Services.AddScoped<ApiLoggingFilter>();
+builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
 builder.Logging.AddProvider(new CustomLoggerProvider(
     new CustomLoggerProviderConfiguration
