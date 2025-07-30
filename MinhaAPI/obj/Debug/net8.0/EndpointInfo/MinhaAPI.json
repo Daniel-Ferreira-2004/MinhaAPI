@@ -362,13 +362,6 @@
             "maxLength": 300,
             "minLength": 0,
             "type": "string"
-          },
-          "produtos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Produto"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false

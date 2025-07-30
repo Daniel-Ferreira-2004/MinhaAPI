@@ -7,6 +7,11 @@ namespace MinhaAPI.Repositories
     public class CategoriaRepository : ICategoriaRepository
     {
         private readonly AppDbContext _context;
+
+        public CategoriaRepository(AppDbContext context)
+        {
+            _context = context;
+        }
         public Categoria GetCategoria(int id)
         {
             return _context.Categorias.FirstOrDefault(c => c.CategoriaId == id);

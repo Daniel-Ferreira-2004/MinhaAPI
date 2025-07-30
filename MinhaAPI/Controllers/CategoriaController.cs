@@ -46,7 +46,6 @@ namespace MinhaAPI.Controllers
         [HttpGet("{id:int}", Name = "ObterCategoria")]
         public ActionResult<Categoria> Get(int id)
         {
-            throw new Exception("Exceção ao retornar a categoria pelo ID");
             var categoria = _repository.GetCategoria(id);
             if (categoria is null)
             {
