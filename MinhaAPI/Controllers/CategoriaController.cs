@@ -13,9 +13,9 @@ namespace MinhaAPI.Controllers
     [ApiController]
     public class CategoriaController : ControllerBase
     {
-        private readonly ICategoriaRepository _repository;
+        private readonly IRepository<Categoria> _repository;
         private readonly ILogger _logger;
-        public CategoriaController(ICategoriaRepository repository, ILogger<CategoriaController> logger)
+        public CategoriaController(IRepository<Categoria> repository, ILogger<CategoriaController> logger)
         {
             _repository = repository;
             _logger = logger;
@@ -25,7 +25,7 @@ namespace MinhaAPI.Controllers
         public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
         {
             _logger.LogInformation("Obtendo categorias com produtos associados");
-            var categorias = _repository.GetCategorias();
+            var categorias = _repository.GetAll();
             if (categorias is null || !categorias.Any())
             {
                 return NotFound("Nenhuma categoria encontrada");
@@ -38,7 +38,7 @@ namespace MinhaAPI.Controllers
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public ActionResult<IEnumerable<Categoria>> Get()
         {
-            var categoria = _repository.GetCategorias();
+            var categoria = _repository.GetAll();
             return Ok(categoria);
 
         }
@@ -46,7 +46,7 @@ namespace MinhaAPI.Controllers
         [HttpGet("{id:int}", Name = "ObterCategoria")]
         public ActionResult<Categoria> Get(int id)
         {
-            var categoria = _repository.GetCategoria(id);
+            var categoria = _repository.Get(c=> c.CategoriaId == id);
             if (categoria is null)
             {
                 return NotFound("Categoria não encontrada");
@@ -82,12 +82,12 @@ namespace MinhaAPI.Controllers
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {
-            var categoria = _repository.GetCategoria(id);
+            var categoria = _repository.Get(c=> c.CategoriaId == id);
             if (categoria is null)
             {
                 return NotFound("Categoria não encontrada");
             }
-            var categoriaExcluida = _repository.Delete(id);
+            var categoriaExcluida = _repository.Delete(categoria);
             return Ok(categoriaExcluida);
         }
 
