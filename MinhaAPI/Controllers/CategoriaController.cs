@@ -63,8 +63,8 @@ namespace MinhaAPI.Controllers
                 return BadRequest("Não encontrado");
             }
 
-            var createdCategoria = _repository.Create(categoria);
-            return CreatedAtRoute("ObterCategoria", new { id = createdCategoria.CategoriaId }, createdCategoria);
+            var CategoriaCriada = _repository.add(categoria);
+            return CreatedAtRoute("ObterCategoria", new { id = CategoriaCriada.CategoriaId }, CategoriaCriada);
         }
 
         [HttpPut("{id:int}")]
@@ -74,8 +74,8 @@ namespace MinhaAPI.Controllers
             {
                 return BadRequest("ID do produto não corresponde ao ID na URL");
             }
-  
-            var updatedCategoria = _repository.Update(categoria);
+
+            var updatedCategoria = _repository.update(categoria);
             return Ok(categoria);
         }
 
@@ -87,7 +87,7 @@ namespace MinhaAPI.Controllers
             {
                 return NotFound("Categoria não encontrada");
             }
-            var categoriaExcluida = _repository.Delete(categoria);
+            var categoriaExcluida = _repository.delete(categoria);
             return Ok(categoriaExcluida);
         }
 

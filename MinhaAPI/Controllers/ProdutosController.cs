@@ -62,7 +62,7 @@ namespace MinhaAPI.Controllers
                 return BadRequest();
             }
 
-            var novoProduto = _repository.Create(produto);
+            var novoProduto = _repository.add(produto);
             return new CreatedAtRouteResult("ObterProduto",
             new { id = novoProduto.ProdutoId }, novoProduto);
         }
@@ -74,7 +74,7 @@ namespace MinhaAPI.Controllers
             {
                 return BadRequest("ID do produto não corresponde ao ID na URL");
             }
-            var produtoAtualizado = _repository.Update(produto);
+            var produtoAtualizado = _repository.update(produto);
 
             return Ok(produtoAtualizado);
         }
@@ -87,7 +87,7 @@ namespace MinhaAPI.Controllers
             {
                 return NotFound("Produto não encontrado");
             }
-            _repository.Delete(produto);
+            _repository.delete(produto);
             return Ok("Produto excluído com sucesso");
         }
     }
