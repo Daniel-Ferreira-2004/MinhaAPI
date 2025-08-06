@@ -14,7 +14,7 @@ namespace MinhaAPI.Repositories
         }
         public IEnumerable<T> GetAll()
         {
-           return _context.Set<T>().ToList();
+           return _context.Set<T>().AsNoTracking().ToList();
         }
         public T? Get(Expression<Func<T, bool>> predicate)
         {
