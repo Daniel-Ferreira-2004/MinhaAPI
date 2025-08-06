@@ -2,8 +2,7 @@
 
 namespace MinhaAPI.Repositories
 {
-    public interface ICategoriaRepository: IRepository<Categoria>
+    public interface ICategoriaRepository :IRepository<Categoria>
     {
-
     }
 }

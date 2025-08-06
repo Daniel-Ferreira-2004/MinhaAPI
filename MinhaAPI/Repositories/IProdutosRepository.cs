@@ -4,6 +4,6 @@ namespace MinhaAPI.Repositories
 {
     public interface IProdutosRepository : IRepository<Produto>
     {
-        IEnumerable<Produto> GetProdutosPorCategoria(int id);
+        IEnumerable<Produto> GetProdutosPorCategoria(int categoriaId);
     }
 }

@@ -6,8 +6,8 @@ namespace MinhaAPI.Repositories
     {
         IEnumerable<T> GetAll();
         T? Get(Expression<Func<T, bool>> predicate);
-        T Create(T entity);
-        T Update(T entity);
-        T Delete(T entity);
+        T add(T entity);
+        T update(T entity);
+        T delete(T entity);
     }
 }

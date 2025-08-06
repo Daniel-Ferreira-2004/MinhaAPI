@@ -12,34 +12,34 @@ namespace MinhaAPI.Repositories
         {
             _context = context;
         }
+        public IEnumerable<T> GetAll()
+        {
+           return _context.Set<T>().ToList();
+        }
         public T? Get(Expression<Func<T, bool>> predicate)
         {
             return _context.Set<T>().FirstOrDefault(predicate);
         }
-
-        public IEnumerable<T> GetAll()
+        public T update(T entity)
         {
-            return _context.Set<T>().ToList();
-
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
+            return entity;
         }
-        public T Create(T entity)
+        public T add(T entity)
         {
             _context.Set<T>().Add(entity);
             _context.SaveChanges();
             return entity;
         }
-        public T Update(T entity)
+
+        public T delete(T entity)
         {
-            _context.Set<T>().Update(entity);
+           _context.Set<T>().Remove(entity);
             _context.SaveChanges();
             return entity;
         }
 
-        public T Delete(T entity)
-        {
-            _context.Set<T>().Remove(entity);
-            _context.SaveChanges();
-            return entity;
-        }
+        
     }
 }

@@ -5,13 +5,12 @@ namespace MinhaAPI.Repositories
 {
     public class ProdutosRepository : Repository<Produto>, IProdutosRepository
     {
-        public ProdutosRepository(AppDbContext context):base(context)
+        public ProdutosRepository(AppDbContext context) : base(context)
         {
         }
-
-        public IEnumerable<Produto> GetProdutosPorCategoria(int id)
+        public IEnumerable<Produto> GetProdutosPorCategoria(int categoriaId)
         {
-            return GetAll().Where(c => c.CategoriaId == id).ToList();
+            return _context.Produtos.Where(p => p.CategoriaId == categoriaId);
         }
     }
 }
