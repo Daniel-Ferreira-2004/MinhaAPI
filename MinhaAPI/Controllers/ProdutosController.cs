@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MinhaAPI.Context;
+using MinhaAPI.DTOs;
 using MinhaAPI.Models;
 using MinhaAPI.Repositories;
 
@@ -13,82 +15,100 @@ namespace MinhaAPI.Controllers
     {
         private readonly IProdutosRepository _produtoRepository;
         private readonly IRepository<Produto> _repository;
+        private readonly IMapper _mapper;
 
         public ProdutosController(IRepository<Produto> repository,
-            IProdutosRepository produtoRepository)
+            IProdutosRepository produtoRepository,
+            IMapper mapper)
         {
             _repository = repository;
             _produtoRepository = produtoRepository;
+            _mapper = mapper;
         }
 
         [HttpGet("produtos/{id}")]
-        public ActionResult<IEnumerable<Produto>> GetProdutosPorCategoria(int id)
+        public ActionResult<IEnumerable<produtoDTO>> GetProdutosPorCategoria(int id)
         {
             var produtos = _produtoRepository.GetProdutosPorCategoria(id);
             if (produtos is null || !produtos.Any())
             {
                 return NotFound("Nenhum produto encontrado para a categoria especificada");
             }
-            return Ok(produtos);
+            var produtosDTO = _mapper.Map<IEnumerable<produtoDTO>>(produtos);
+            return Ok(produtosDTO);
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Produto>> Get()
+        public ActionResult<IEnumerable<produtoDTO>> Get()
         {
             var produtos = _repository.GetAll();
             if (produtos is null)
             {
                 return NotFound("Produtos não encontrados");
             }
-            return Ok(produtos);
+            var produtosDTO = _mapper.Map<IEnumerable<produtoDTO>>(produtos);
+
+            return Ok(produtosDTO);
         }
 
         [HttpGet ("{id:int}", Name ="ObterProduto")]
-        public ActionResult<Produto> Get(int id)
+        public ActionResult<produtoDTO> Get(int id)
         {
             var produto = _repository.Get(p=> p.ProdutoId == id);
             if (produto is null)
             {
                 return NotFound("Produto não encontrado");
             }
-            return Ok(produto);
+            var produtoDTO = _mapper.Map<produtoDTO>(produto);
+            return Ok(produtoDTO);
         }
 
         [HttpPost]
-        public ActionResult Post(Produto produto)
+        public ActionResult<produtoDTO> Post(produtoDTO produtoDTO)
         {
-            if (produto is null)
+            if (produtoDTO is null)
             {
                 return BadRequest();
             }
+            var produto = _mapper.Map<Produto>(produtoDTO);
 
             var novoProduto = _repository.add(produto);
+
+            var produtoDTOResult = _mapper.Map<produtoDTO>(novoProduto);
+
             return new CreatedAtRouteResult("ObterProduto",
-            new { id = novoProduto.ProdutoId }, novoProduto);
+            new { id = produtoDTOResult.ProdutoId }, produtoDTOResult);
         }
 
         [HttpPut("{id:int}")]
-        public ActionResult Put(int id, Produto produto)
+        public ActionResult<produtoDTO> Put(int id, produtoDTO produtoDTO)
         {
-            if (id != produto.ProdutoId)
+            if (id != produtoDTO.ProdutoId)
             {
                 return BadRequest("ID do produto não corresponde ao ID na URL");
             }
+            var produto = _mapper.Map<Produto>(produtoDTO);
+
             var produtoAtualizado = _repository.update(produto);
 
-            return Ok(produtoAtualizado);
+            var produtoAtualizadoDTO = _mapper.Map<produtoDTO>(produtoAtualizado);
+
+            return Ok(produtoAtualizadoDTO);
         }
 
         [HttpDelete("{id:int}")]
-        public ActionResult Delete(int id)
+        public ActionResult<produtoDTO> Delete(int id)
         {
             var produto = _repository.Get(p => p.ProdutoId == id);
             if (produto is null)
             {
                 return NotFound("Produto não encontrado");
             }
-            _repository.delete(produto);
-            return Ok("Produto excluído com sucesso");
+            var produtoDeletado = _repository.delete(produto);
+
+            var produtoDeletadoDTO = _mapper.Map<produtoDTO>(produtoDeletado);
+
+            return Ok(produtoDeletadoDTO);
         }
     }
 }

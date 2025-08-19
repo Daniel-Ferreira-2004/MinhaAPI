@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\daniel.ferreira\\Documents\\repos - Copia\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj": {}
+    "C:\\Users\\Daniel\\source\\repos\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\daniel.ferreira\\Documents\\repos - Copia\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj": {
+    "C:\\Users\\Daniel\\source\\repos\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniel.ferreira\\Documents\\repos - Copia\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Daniel\\source\\repos\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
         "projectName": "MinhaAPI",
-        "projectPath": "C:\\Users\\daniel.ferreira\\Documents\\repos - Copia\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
-        "packagesPath": "C:\\Users\\daniel.ferreira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daniel.ferreira\\Documents\\repos - Copia\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\obj\\",
+        "projectPath": "C:\\Users\\Daniel\\source\\repos\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
+        "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Daniel\\source\\repos\\Daniel-Ferreira-2004\\MinhaAPI\\MinhaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\daniel.ferreira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,6 +50,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[15.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.13, )"
@@ -89,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MinhaAPI.Context;
+using MinhaAPI.DTOs.Mappings;
 using MinhaAPI.Extensions;
 using MinhaAPI.Filters;
 using MinhaAPI.Logging;
@@ -22,6 +23,7 @@ builder.Services.AddScoped<ApiLoggingFilter>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<IProdutosRepository, ProdutosRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddAutoMapper(typeof(ProdutoDTOMappingProfile));
 
 builder.Logging.AddProvider(new CustomLoggerProvider(
     new CustomLoggerProviderConfiguration
