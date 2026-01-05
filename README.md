@@ -1,4 +1,4 @@
-🛠️ MinhaAPI – Meu Primeiro Sistema CRUD com ASP.NET Core
+[🛠️ MinhaAPI – Meu Primeiro Sistema CRUD com ASP.NET Core
 Este projeto marca o início da minha jornada no desenvolvimento de APIs com ASP.NET Core. Através dele, implementei um sistema básico de cadastro de produtos, aplicando os conceitos fundamentais de um CRUD (Create, Read, Update, Delete). Foi uma experiência enriquecedora que me proporcionou aprendizado prático e compreensão dos fluxos de dados em aplicações web.
 
 🧰 Tecnologias Utilizadas
@@ -89,3 +89,4 @@ Aprendizado sobre a utilização do Entity Framework Core para manipulação de 
 Experiência no desenvolvimento de APIs RESTful com ASP.NET Core.
 
 Familiarização com ferramentas de documentação e testes de APIs, como o Swagger UI.
+](https://github.com/Daniel-Ferreira-2004/EscolaAPI)
