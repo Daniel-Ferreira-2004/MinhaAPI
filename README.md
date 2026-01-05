@@ -1,92 +1,114 @@
-[🛠️ MinhaAPI – Meu Primeiro Sistema CRUD com ASP.NET Core
-Este projeto marca o início da minha jornada no desenvolvimento de APIs com ASP.NET Core. Através dele, implementei um sistema básico de cadastro de produtos, aplicando os conceitos fundamentais de um CRUD (Create, Read, Update, Delete). Foi uma experiência enriquecedora que me proporcionou aprendizado prático e compreensão dos fluxos de dados em aplicações web.
+# ⚙️ MinhaAPI – ASP.NET Core Web API
 
-🧰 Tecnologias Utilizadas
-C#: Linguagem de programação principal para o desenvolvimento da API.
+API desenvolvida em **ASP.NET Core Web API** com foco em **aprendizado de backend**, organização de projeto, uso de **Entity Framework Core** e construção de **endpoints REST**. Este projeto faz parte do meu processo de evolução como desenvolvedor **.NET**, sendo utilizado para estudo e portfólio.
 
-ASP.NET Core: Framework da Microsoft para construção de aplicações web e APIs.
+---
 
-Entity Framework Core: ORM (Object-Relational Mapper) utilizado para interagir com o banco de dados de forma eficiente e segura.
+## 🚀 Funcionalidades
 
-SQL Server: Sistema de gerenciamento de banco de dados utilizado para armazenar as informações dos produtos.
+* Estrutura básica de uma Web API
+* Endpoints REST (GET, POST, PUT, DELETE)
+* Separação de responsabilidades (Controllers, Models, Data)
+* Persistência de dados com Entity Framework Core
+* Configuração de banco de dados
+* Testes de endpoints via Swagger
 
-Swagger UI: Interface interativa para documentação e testes da API.
+---
 
-📂 Estrutura do Projeto
-bash
-Copiar
-Editar
+## 🛠️ Tecnologias Utilizadas
+
+* **C#**
+* **ASP.NET Core Web API**
+* **Entity Framework Core**
+* **Banco de Dados Relacional** (configurável)
+* **Swagger / OpenAPI**
+
+---
+
+## 📂 Estrutura do Projeto
+
+```bash
 MinhaAPI/
+│
 ├── Controllers/
-│   └── ProductController.cs      # Controlador responsável pelas operações de produtos
+│   └── *.cs
+│
 ├── Models/
-│   └── Product.cs                # Modelo de dados do produto
+│   └── *.cs
+│
 ├── Data/
-│   └── ApplicationDbContext.cs   # Contexto do banco de dados
-├── Program.cs                    # Ponto de entrada da aplicação
-└── Startup.cs                    # Configurações e serviços da aplicação
-🚀 Como Executar o Projeto Localmente
-Clone o repositório:
+│   └── AppDbContext.cs
+│
+├── Migrations/
+├── Program.cs
+└── appsettings.json
+```
 
-bash
-Copiar
-Editar
+---
+
+## ▶️ Como Executar o Projeto
+
+### Pré-requisitos
+
+* .NET SDK 7 ou superior
+* Visual Studio ou VS Code
+* Banco de dados configurado no `appsettings.json`
+
+### Passos
+
+```bash
+# Clone o repositório
 git clone https://github.com/Daniel-Ferreira-2004/MinhaAPI.git
-Abra a solução no Visual Studio ou Visual Studio Code.
 
-Restaure os pacotes NuGet:
+# Acesse a pasta
+cd MinhaAPI
 
-bash
-Copiar
-Editar
+# Restaure os pacotes
 dotnet restore
-Crie e aplique as migrações do banco de dados:
 
-bash
-Copiar
-Editar
-dotnet ef migrations add InitialCreate
+# Atualize o banco de dados
 dotnet ef database update
-Execute o projeto:
 
-bash
-Copiar
-Editar
+# Execute o projeto
 dotnet run
+```
 
-📝 Funcionalidades Implementadas
-Cadastro de Produtos: Permite o registro de novos produtos no sistema, incluindo informações como nome, descrição, preço e quantidade em estoque.
+A API estará disponível em:
 
-Validação de Dados: Implementação de validações para garantir a integridade e consistência dos dados inseridos.
+```
+https://localhost:5001
+```
 
-Persistência de Dados: Utilização do Entity Framework Core para salvar e recuperar informações do banco de dados SQL Server.
+---
 
-📊 Visualização e Interação com a API via Swagger UI
-A interface do Swagger UI oferece uma maneira prática e interativa de visualizar e testar os endpoints da API. Ao acessar a URL https://daniel-ferreira-2004.github.io/MinhaAPI/, você encontrará uma documentação gerada automaticamente que descreve os métodos disponíveis, parâmetros esperados e exemplos de respostas.
-Microsoft Learn
-+2
-Mauro Souza
-+2
-DEV Community
-+2
-Medium
+## 📑 Documentação da API
 
-Funcionalidades do Swagger UI:
-Visualização dos Endpoints: Exibe todos os métodos disponíveis na API, como GET, POST, PUT e DELETE.
+A documentação interativa é disponibilizada via **Swagger**:
 
-Testes Interativos: Permite enviar requisições diretamente da interface, facilitando a validação e depuração dos endpoints.
+```
+https://localhost:5001/swagger
+```
 
-Documentação Dinâmica: Atualiza automaticamente conforme alterações no código, refletindo as mudanças nos métodos e parâmetros.
-Mauro Souza
+---
 
-Essa ferramenta foi fundamental para o desenvolvimento e testes da API, proporcionando uma maneira eficiente de interagir com os endpoints e verificar seu comportamento em tempo real.
+## 🎯 Objetivo do Projeto
 
-🎯 Objetivos Alcançados
-Compreensão dos conceitos de CRUD e sua aplicação prática em uma API.
+Este projeto foi desenvolvido para:
 
-Aprendizado sobre a utilização do Entity Framework Core para manipulação de dados.
+* Consolidar conceitos de **ASP.NET Core Web API**
+* Praticar **CRUD e persistência de dados**
+* Entender o fluxo de uma API REST em .NET
+* Evoluir como desenvolvedor backend
+* Compor portfólio para **vaga júnior .NET**
 
-Experiência no desenvolvimento de APIs RESTful com ASP.NET Core.
+---
 
-Familiarização com ferramentas de documentação e testes de APIs, como o Swagger UI.
-](https://github.com/Daniel-Ferreira-2004/EscolaAPI)
+## 👨‍💻 Autor
+
+**Daniel Ferreira**
+
+* GitHub: [@Daniel-Ferreira-2004](https://github.com/Daniel-Ferreira-2004)
+
+---
+
+⭐ Se este projeto te ajudou ou serviu como referência, deixe uma estrela!
